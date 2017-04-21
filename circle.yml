@@ -46,18 +46,18 @@ deployment:
     commands:
     # Package windows assets differently:
     - mkdir -p /tmp/386
-    - mv $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME_windows_386.exe /tmp/386
+    - mv $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_386.exe /tmp/386
     - cp $PACKAGE_PATH/dist/nssm.exe /tmp/386
     - cp $PACKAGE_PATH/dist/install.bat /tmp/386
     - cp $PACKAGE_PATH/dist/uninstall.bat /tmp/386
-    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME_windows_386.zip 386
+    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_386.zip 386
 
     - mkdir -p /tmp/amd64
-    - mv $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME_windows_amd64.exe /tmp/amd64
+    - mv $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_amd64.exe /tmp/amd64
     - cp $PACKAGE_PATH/dist/nssm.exe /tmp/amd64
     - cp $PACKAGE_PATH/dist/install.bat /tmp/amd64
     - cp $PACKAGE_PATH/dist/uninstall.bat /tmp/amd64
-    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/$CIRCLE_PROJECT_REPONAME_windows_amd64.zip amd64
+    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_amd64.zip amd64
 
     # Publish assets to Github
     - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME v1.0.$CIRCLE_BUILD_NUM $CIRCLE_ARTIFACTS/ || true    
