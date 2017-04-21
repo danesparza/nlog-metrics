@@ -52,14 +52,14 @@ deployment:
     - cp $HOME/download/nssm.exe /tmp/386
     - cp $PROJECT_DIR/dist/install.bat /tmp/386
     - cp $PROJECT_DIR/dist/uninstall.bat /tmp/386
-    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_386.zip 386
+    - cd /tmp/386; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_386.zip .
 
     - mkdir -p /tmp/amd64
     - mv $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_amd64.exe /tmp/amd64
     - cp $HOME/download/nssm.exe /tmp/amd64
     - cp $PROJECT_DIR/dist/install.bat /tmp/amd64
     - cp $PROJECT_DIR/dist/uninstall.bat /tmp/amd64
-    - cd /tmp; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_amd64.zip amd64
+    - cd /tmp/amd64; zip -r9 $CIRCLE_ARTIFACTS/${CIRCLE_PROJECT_REPONAME}_windows_amd64.zip .
 
     # Publish assets to Github
     - ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME v1.0.$CIRCLE_BUILD_NUM $CIRCLE_ARTIFACTS/ || true    
