@@ -10,7 +10,7 @@ machine:
     - test -e download/$GODIST || curl -o download/$GODIST https://storage.googleapis.com/golang/$GODIST
     - sudo rm -rf /usr/local/go
     - sudo tar -C /usr/local -xzf download/$GODIST
-    # Download NSSM if we need to
+    # Download NSSM if we need to.  Note the 'raw' portion of the url, and how we updated the curl switches
     - test -e $HOME/download/nssm.exe || curl -L -k -o $HOME/download/nssm.exe https://github.com/danesparza/nlog-metrics/raw/master/dist/nssm.exe
 dependencies:
   pre:    
