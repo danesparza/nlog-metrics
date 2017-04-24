@@ -11,7 +11,7 @@ machine:
     - sudo rm -rf /usr/local/go
     - sudo tar -C /usr/local -xzf download/$GODIST
     # Download NSSM if we need to
-    - test -e $HOME/download/nssm.exe || curl -o $HOME/download/nssm.exe https://github.com/danesparza/nlog-metrics/raw/master/dist/nssm.exe
+    - test -e $HOME/download/nssm.exe || curl -L -k -o $HOME/download/nssm.exe https://github.com/danesparza/nlog-metrics/raw/master/dist/nssm.exe
 dependencies:
   pre:    
     # Sanity check that our go version is installed
