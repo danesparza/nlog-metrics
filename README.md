@@ -10,7 +10,7 @@ Tracks logging metrics using InfluxDB
 nlog-metrics config > config.yaml
 ```
 
-Update the config file sections with information for your NLog database and your InfluxDB database:
+Update the config file sections with information for your [NLog database](https://github.com/danesparza/NLogReader/tree/master/sql) and your [InfluxDB database](https://github.com/influxdata/influxdb):
 ``` yaml
 sqlserver:
   server: servernamehere
